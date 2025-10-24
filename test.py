@@ -2,7 +2,6 @@ from autogen_agentchat.agents import AssistantAgent, UserProxyAgent
 from autogen_agentchat.conditions import TextMentionTermination
 from autogen_agentchat.teams import RoundRobinGroupChat
 from autogen_agentchat.ui import Console
-from autogen_ext.models.openai import OpenAIChatCompletionClient
 import asyncio
 from autogen_ext.models.ollama import OllamaChatCompletionClient
 from autogen_core.tools import FunctionTool
@@ -40,5 +39,6 @@ team = RoundRobinGroupChat([primary_agent,critic_agent,user_agent], termination_
 
 async def main():
     await Console(team.run_stream(task="Spell 'REGGIN' backwards."))
+
 
 asyncio.run(main())
